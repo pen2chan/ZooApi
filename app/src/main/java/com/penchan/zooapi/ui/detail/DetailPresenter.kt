@@ -11,6 +11,7 @@ import retrofit2.Response
 class DetailPresenter(private var mView: DetailContract.View?) : DetailContract.Presenter {
 
     override fun start() {
+        mView?.initHeader()
         mView?.showProgress()
         getPlantList(0)
     }
@@ -22,6 +23,7 @@ class DetailPresenter(private var mView: DetailContract.View?) : DetailContract.
 
     override fun refreshList() {
         mView?.clearList()
+        mView?.initHeader()
         getPlantList(0)
     }
 

@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
+import com.penchan.zooapi.R
 import com.penchan.zooapi.databinding.FragmentPlantBinding
 import com.penchan.zooapi.model.entity.PlantEntity
 import com.penchan.zooapi.model.entity.ZoneEntity
@@ -57,6 +58,7 @@ class PlantFragment : Fragment(), PlantContract.View {
     override fun updateUI(entity: PlantEntity) {
         Glide.with(mBinding.root)
             .load(entity.picUrl1)
+            .placeholder(R.drawable.ic_loading)
             .into(mBinding.ivPlant)
 
         mBinding.tvChName.text = entity.chineseName

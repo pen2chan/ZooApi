@@ -78,6 +78,10 @@ class DetailFragment : Fragment(), DetailContract.View {
         }
     }
 
+    override fun initHeader() {
+        mAdapter.addHeader()
+    }
+
     override fun updateResult(result: PlantResult) {
         mBinding.swipeRefresh.isRefreshing = false
         mAdapter.updateResult(result)
@@ -85,6 +89,7 @@ class DetailFragment : Fragment(), DetailContract.View {
 
     override fun clearList() {
         mAdapter.clear()
+        mAdapter.addHeader()
     }
 
     override fun onItemClick(entity: PlantEntity) {

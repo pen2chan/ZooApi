@@ -3,6 +3,7 @@ package com.penchan.zooapi.ui.detail.viewholder
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
+import com.penchan.zooapi.R
 import com.penchan.zooapi.base.BaseViewHolder
 import com.penchan.zooapi.databinding.ViewholderPlantItemBinding
 import com.penchan.zooapi.model.entity.PlantEntity
@@ -32,6 +33,7 @@ class PlantItemViewHolder (mBinding: ViewholderPlantItemBinding, mView: DetailCo
 
         Glide.with(mContext)
             .load(data.picUrl1)
+            .placeholder(R.drawable.ic_loading)
             .into(mBinding.ivPlantPic)
 
         mBinding.tvName.text = data.chineseName

@@ -15,6 +15,13 @@ class DetailAdapter(val mEntity: ZoneEntity, val mView: DetailContract.View) : R
     var count = 0
     var offset = 0
 
+    fun addHeader() {
+        if (list.size == 0) {
+            list.add(PlantEntity(DetailViewHolderFactory.TYPE_HEADER))
+            notifyItemChanged(0)
+        }
+    }
+
     fun clear() {
         count = 0
         offset = 0
@@ -29,13 +36,10 @@ class DetailAdapter(val mEntity: ZoneEntity, val mView: DetailContract.View) : R
     }
 
     fun updateList(items: List<PlantEntity>) {
-        if (list.size == 0) {
-            list.add(PlantEntity(DetailViewHolderFactory.TYPE_HEADER))
-        }
-
+        val firstUpdatePos = list.size
         items.forEach { this.list.add(it) }
 
-        notifyDataSetChanged()
+        notifyItemRangeChanged(firstUpdatePos, items.size)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {

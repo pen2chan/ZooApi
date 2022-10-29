@@ -16,6 +16,8 @@ interface DetailContract {
     }
 
     interface View : BaseView<Presenter> {
+        fun initHeader()
+
         fun updateResult(result: PlantResult)
 
         fun clearList()

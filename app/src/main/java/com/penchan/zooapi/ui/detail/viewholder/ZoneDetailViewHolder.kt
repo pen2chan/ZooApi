@@ -3,6 +3,7 @@ package com.penchan.zooapi.ui.detail.viewholder
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
+import com.penchan.zooapi.R
 import com.penchan.zooapi.base.BaseViewHolder
 import com.penchan.zooapi.databinding.ViewholderZoneDetailBinding
 import com.penchan.zooapi.model.entity.ZoneEntity
@@ -22,6 +23,7 @@ class ZoneDetailViewHolder(mBinding: ViewholderZoneDetailBinding) :
 
         Glide.with(mContext)
             .load(entity.picUrl)
+            .placeholder(R.drawable.ic_loading)
             .into(mBinding.ivZonePic)
 
         mBinding.tvInfo.text = entity.info
